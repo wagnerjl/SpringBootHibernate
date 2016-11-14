@@ -34,4 +34,14 @@ public class ClienteController {
         clienteDAO.save(cliente);
         return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
     } 
+    
+    @RequestMapping("/teste")
+    public ResponseEntity<Cliente> teste() {
+        return new ResponseEntity<Cliente>(new Cliente(), HttpStatus.OK);
+    }
+    
+    @RequestMapping("/cliente/consulta/{id}")
+    public ResponseEntity<Cliente> consultarCliente(@PathVariable("id") Integer id) {
+        return new ResponseEntity<Cliente>(clienteDAO.find(id), HttpStatus.FOUND);
+    }
 }

@@ -7,6 +7,7 @@ package br.com.teste.springboothibernatetest.daoImpl;
 
 import br.com.teste.springboothibernatetest.dao.ClienteDAO;
 import br.com.teste.springboothibernatetest.entity.Cliente;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -33,7 +34,13 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente find(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.find(Cliente.class, id);
     }
+
+    @Override
+    public List<Cliente> findAll() {
+        return em.createQuery("from Cliente").getResultList();
+    }
+    
     
 }

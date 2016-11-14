@@ -6,13 +6,19 @@
 package br.com.teste.springboothibernatetest.dao;
 
 import br.com.teste.springboothibernatetest.entity.Cliente;
+import java.util.List;
 
 /**
  *
  * @author wagnerjl
  */
 public interface ClienteDAO {
+    
     void save(Cliente cliente);
+    
     Cliente update(Cliente cliente);
+    
     Cliente find(Integer id);
+    
+    List<Cliente> findAll();
 }
